@@ -1,0 +1,15 @@
+# Google Workspace MCP Server Requirements
+
+# MCP 框架
+mcp[cli]>=1.2.0
+
+# Google API 客户端
+google-api-python-client>=2.100.0
+google-auth-oauthlib>=1.0.0
+google-auth-httplib2>=0.2.0
+
+# 配置管理
+python-dotenv>=1.0.0
+
+# 可选：加密支持
+cryptography>=41.0.0

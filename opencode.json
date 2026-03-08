@@ -1,0 +1,49 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "google-gmail": {
+      "type": "local",
+      "command": [
+        "/home/wenchen/greenbriar/mcp-servers/google-workspace/venv/bin/python",
+        "-m",
+        "gmail.tools"
+      ],
+      "environment": {
+        "PYTHONPATH": "/home/wenchen/greenbriar/mcp-servers/google-workspace"
+      },
+      "enabled": true
+    },
+    "google-gcalendar": {
+      "type": "local",
+      "command": [
+        "/home/wenchen/greenbriar/mcp-servers/google-workspace/venv/bin/python",
+        "-m",
+        "gcalendar.tools"
+      ],
+      "environment": {
+        "PYTHONPATH": "/home/wenchen/greenbriar/mcp-servers/google-workspace"
+      },
+      "enabled": true
+    }
+  },
+  "agent": {
+    "greenbriar": {
+      "description": "日常事务助手（邮件、日历）",
+      "mode": "primary",
+      "model": "deepseek/deepseek-chat",
+      "prompt": "{file:./AGENTS.md}"
+    },
+    "gmail": {
+      "description": "Gmail邮件管理（Google Workspace）",
+      "mode": "subagent",
+      "model": "deepseek/deepseek-chat",
+      "prompt": "{file:./.opencode/agents/greenbriar-gmail.md}"
+    },
+    "gcalendar": {
+      "description": "Google Calendar 日历管理",
+      "mode": "subagent",
+      "model": "deepseek/deepseek-chat",
+      "prompt": "{file:./.opencode/agents/greenbriar-gcalendar.md}"
+    }
+  }
+}
